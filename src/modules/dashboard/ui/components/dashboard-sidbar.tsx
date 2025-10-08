@@ -53,7 +53,7 @@ export const DashboardSidebar = () => {
             height={50}
             width={50}
             alt="Meet.AI"
-            className="w-12 h-12"
+            className="w-13 h-12"
           />
           <p className="text-2xl font-semibold tracking-tight">Neuro Meet</p>
         </Link>
