@@ -8,7 +8,8 @@ import { inferRouterOutputs } from "@trpc/server"
 import type { AppRouter } from "@/trpc/routers/_app"
 
 export const columns: ColumnDef<
-  inferRouterOutputs<AppRouter>["agents"]["getMany"][number]
+ inferRouterOutputs<AppRouter>["agents"]["getMany"]["items"][number]
+
 >[] = [
   {
     accessorKey: "name",
@@ -35,13 +36,13 @@ export const columns: ColumnDef<
   {
     accessorKey: "meetingCount",
     header: "Meetings",
-    cell: ({ }) => (
+    cell: ({row }) => (
       <Badge
         variant="outline"
         className="flex items-center gap-x-2 [&>svg]:size-4"
       >
         <VideoIcon className="text-blue-700" />
-       5 meetings
+       {row.original.meetingCount} {row.original.meetingCount === 1 ? "meeting" : "meetings"}
       </Badge>
     ),
   },

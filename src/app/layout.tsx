@@ -3,13 +3,15 @@ import { Inter } from "next/font/google";
 
 import { Toaster } from "@/components/ui/sonner";
 import { TRPCReactProvider } from "@/trpc/client";
+import { NuqsAdapter } from "nuqs/adapters/next";
+
+
 
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,15 +24,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <TRPCReactProvider>
-      <html lang="en">
-        <body
-          className={`${inter.className} antialiased`}
-        >
-          <Toaster/>
-          {children}
-        </body>
-      </html>
-    </TRPCReactProvider>  
+    <html lang="en">
+      <body className={`${inter.className} antialiased`}>
+        <NuqsAdapter>
+          <TRPCReactProvider>
+            <Toaster />
+            {children}
+          </TRPCReactProvider>
+        </NuqsAdapter>
+      </body>
+    </html>
   );
 }
