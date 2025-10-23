@@ -4,13 +4,9 @@ import { ColumnDef } from "@tanstack/react-table"
 import { GeneratedAvatar } from "@/components/generated-avater"
 import { CornerDownRightIcon, VideoIcon } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
-import { inferRouterOutputs } from "@trpc/server"
-import type { AppRouter } from "@/trpc/routers/_app"
+import { AgentsGetMany } from "../../types"
 
-export const columns: ColumnDef<
- inferRouterOutputs<AppRouter>["agents"]["getMany"]["items"][number]
-
->[] = [
+export const columns: ColumnDef<AgentsGetMany[number]>[] = [
   {
     accessorKey: "name",
     header: "Agent name",
