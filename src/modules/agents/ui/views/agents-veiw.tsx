@@ -6,10 +6,11 @@ import { useTRPC } from "@/trpc/client";
 import { ErrorState } from "@/components/error-state";
 import { LoadingState } from "@/components/loading-state";
 import { columns } from "../components/columns";
-import { DataTable } from "../components/data-table";
+
 import { EmptyState } from "@/components/empty-state";
 import { DataPagination } from "../components/data-pagination";
 import { useAgentsFilters } from "../../hooks/use-agents-filters";
+import { DataTable } from "@/components/data-table";
 
 
 export const AgentsView = () => {
