@@ -13,3 +13,4 @@ export function formatDuration(seconds: number) {
     round: true,
     units: ["h", "m", "s"],
   });
+};
