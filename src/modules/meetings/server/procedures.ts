@@ -6,7 +6,7 @@ import { and, eq, ilike, getTableColumns, desc, count, sql, inArray } from "driz
 import { streamVideo } from "@/lib/stream-video";
 import { generateAvatarUri } from "@/lib/avatar";
 import { agents, meetings, user } from "@/db/schema";
-import { createTRPCRouter, protectedProcedure } from "@/trpc/init";
+import { createTRPCRouter, premiumProcedure, protectedProcedure } from "@/trpc/init";
 import { MeetingStatus, StreamTranscriptItem } from "../types";
 import { streamChat } from "@/lib/stream-chat";
 import {
@@ -167,7 +167,7 @@ export const meetingsRouter = createTRPCRouter({
       return updateMeeting;
     }),
 
-  create: protectedProcedure
+  create: premiumProcedure("meetings")
     .input(meetingsInsertSchema)
     .mutation(async ({ input, ctx }) => {
       const [createdMeeting] = await db
