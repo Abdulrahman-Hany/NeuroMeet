@@ -83,8 +83,6 @@ const isProcessing = data.status === "processing";
                     />}
                     {isUpcoming &&( <UpcomingState
                     meetingId={meetingId}
-                    onCancelMeeting={() => {}}
-                    isCancelling={false}
                     />)}
             </div>
         </>
